@@ -15,4 +15,5 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', 'HomeController.index')
+Route.post('/url', 'UrlController.create')
