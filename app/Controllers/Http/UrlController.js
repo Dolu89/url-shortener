@@ -18,6 +18,12 @@ class UrlController {
         return response.redirect('/')
     }
 
+    async redirect({request, response, params}) {
+        var {code} = params
+        var url = await UrlService.getUrlByCode(code)
+        return response.redirect(url)
+    }
+
 }
 
 module.exports = UrlController

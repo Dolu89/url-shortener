@@ -1,5 +1,6 @@
 'use strict'
 
+const Env = use('Env')
 const Url = use('App/Models/Url')
 
 class UrlService {
@@ -19,6 +20,15 @@ class UrlService {
     async isCodeUrlAlreadyExists(code) {
         if(code === "") return true
         return await Url.findBy('code', code) === null ? false : true
+    }
+
+    async getUrlByCode(code) {
+        var urlDb = await Url.findBy('code', code)
+        if(urlDb != null){
+            var urlJson = urlDb.toJSON()
+            return urlJson.url
+        }
+        return Env.get('APP_URL')
     }
 
 }

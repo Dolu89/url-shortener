@@ -16,4 +16,8 @@
 const Route = use('Route')
 
 Route.get('/', 'HomeController.index')
-Route.post('/url', 'UrlController.create')
+Route.get('/:code', 'UrlController.redirect')
+
+Route.group(() => {
+    Route.post('/', 'UrlController.create')
+}).prefix('/url')
