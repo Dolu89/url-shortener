@@ -1,18 +1,14 @@
 {
-  "name": "adonis-fullstack-app",
+  "name": "url-shortener",
   "version": "4.1.0",
   "adonis-version": "4.1.0",
-  "description": "The fullstack application boilerplate for Adonisjs",
+  "description": "Url shortener",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
     "test": "node ace test"
   },
-  "keywords": [
-    "adonisjs",
-    "adonis-app"
-  ],
-  "author": "",
+  "author": "dolu",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
