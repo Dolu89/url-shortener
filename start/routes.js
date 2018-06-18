@@ -16,8 +16,20 @@
 const Route = use('Route')
 
 Route.get('/', 'HomeController.index')
-Route.get('/:code', 'UrlController.redirect')
 
 Route.group(() => {
     Route.post('/', 'UrlController.create')
 }).prefix('/url')
+
+// Route.get('/dashboard', 'DashboardController.index').middleware('auth')
+
+Route.on('/signup').render('auth.signup')
+Route.on('/signin').render('auth.signin')
+Route.post('/signin', 'UserController.login')
+Route.post('/signup', 'UserController.store')
+Route.get('/logout', async ({ auth, response }) => {
+    await auth.logout()
+    return response.redirect('/')
+})
+
+Route.get('/:code', 'UrlController.redirect')
